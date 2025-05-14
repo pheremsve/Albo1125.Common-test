@@ -1,10 +1,4 @@
-﻿using Rage;
-using Rage.Native;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Albo1125.Common.CommonLibrary
 {
@@ -106,7 +100,7 @@ namespace Albo1125.Common.CommonLibrary
         }
 
 
-
+       
         public static string GetLowerZoneNameForEntity(this Entity entity)
         {
             return GetZoneName(GetZone(entity.Position)).ToLower();
@@ -138,7 +132,32 @@ namespace Albo1125.Common.CommonLibrary
         private static string[] LosSantosCountyZoneNames = new string[] {"tongva hills", "chumash", "banham canyon drive", "banham canyon", "san andreas", "richman glen", "tongva valley", "great chaparral", "vinewood hills",
         "tataviam mountains", "noose hq", "palomino highlands"};
 
-        public enum WorldDistricts { City, LosSantosCountryside, BlaineCounty, Water }
+        /// <summary>
+        /// Represents the world districts in the game.
+        /// </summary>
+        public enum WorldDistricts
+        {
+            /// <summary>
+            /// Represents the city district.
+            /// </summary>
+            City,
+
+            /// <summary>
+            /// Represents the Los Santos countryside district.
+            /// </summary>
+            LosSantosCountryside,
+
+            /// <summary>
+            /// Represents the Blaine County district.
+            /// </summary>
+            BlaineCounty,
+
+            /// <summary>
+            /// Represents water areas.
+            /// </summary>
+            Water
+        }
+
         public static WorldDistricts GetWorldDistrict(this Vector3 pos)
         {
             if (pos.IsPointOnWater()) { return WorldDistricts.Water; }
@@ -159,9 +178,14 @@ namespace Albo1125.Common.CommonLibrary
             }
         }
 
-        
 
 
+
+        /// <summary>
+        /// Gets the name of the specified world zone.
+        /// </summary>
+        /// <param name="zone">The world zone to get the name for.</param>
+        /// <returns>The name of the specified world zone as a string.</returns>
         public static string GetZoneName(EWorldZone zone)
         {
             switch (zone)
@@ -348,6 +372,5 @@ namespace Albo1125.Common.CommonLibrary
                     return String.Empty;
             }
         }
-
     }
 }

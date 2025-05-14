@@ -1,16 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rage;
 
 namespace Albo1125.Common.CommonLibrary
 {
+    /// <summary>
+    /// Provides common variables and utility data for the application.
+    /// </summary>
     public static class CommonVariables
     {
+        /// <summary>
+        /// A shared instance of the Random class for generating random numbers.
+        /// </summary>
         public static Random rnd = new Random();
+
+        /// <summary>
+        /// Indicates whether to display the time in the application.
+        /// </summary>
         internal static bool DisplayTime = false;
+
+        /// <summary>
+        /// A collection of ground vehicle models to select from, including cars and motorbikes.
+        /// </summary>
         public static Model[] GroundVehiclesToSelectFrom
         {
             get
@@ -18,27 +26,85 @@ namespace Albo1125.Common.CommonLibrary
                 return _CarsToSelectFrom.Concat<Model>(_MotorBikesToSelectFrom).ToArray<Model>();
             }
         }
-        private static List<Model> _CarsToSelectFrom = new List<Model> {"DUKES", "BALLER", "BALLER2", "BISON", "BISON2", "BJXL", "CAVALCADE", "CHEETAH", "COGCABRIO", "ASEA", "ADDER", "FELON", "FELON2", "ZENTORNO",
-        "WARRENER", "RAPIDGT", "INTRUDER", "FELTZER2", "FQ2", "RANCHERXL", "REBEL", "SCHWARZER", "COQUETTE", "CARBONIZZARE", "EMPEROR", "SULTAN", "EXEMPLAR", "MASSACRO",
-        "DOMINATOR", "ASTEROPE", "PRAIRIE", "NINEF", "WASHINGTON", "CHINO", "CASCO", "INFERNUS", "ZTYPE", "DILETTANTE", "VIRGO", "F620", "PRIMO", "SULTAN", "EXEMPLAR", "F620", "FELON2", "FELON", "SENTINEL", "WINDSOR",
-            "DOMINATOR", "DUKES", "GAUNTLET", "VIRGO", "ADDER", "BUFFALO", "ZENTORNO", "MASSACRO" };
+        private static List<Model> _CarsToSelectFrom = new List<Model>
+{
+    // ?? Sedans
+    "ASEA", "ASTEROPE", "INTRUDER", "PREMIER", "PRIMO", "REGINA", "SCHAFTER2", "STANIER", "STRATUM", "SURGE", "TAILGATER", "WARRENER", "WASHINGTON",
+
+    // ?? Coupes
+    "FELON", "FELON2", "F620", "EXEMPLAR", "WINDSOR", "WINDSOR2", "ZION", "ZION2", "COGCABRIO", "SENTINEL", "SENTINEL2",
+
+    // ?? Sports
+    "SULTAN", "SULTAN2", "RAPIDGT", "RAPIDGT2", "SCHWARZER", "BUFFALO", "BUFFALO2", "BUFFALO3", "JESTER", "JESTER2", "FUSILADE", "KURUMA", "KURUMA2", "9F", "9F2", "PENUMBRA", "FELTZER2", "COQUETTE", "MASSACRO", "MASSACRO2", "CARBONIZZARE", "COMET2",
+
+    // ?? Super
+    "ADDER", "ZENTORNO", "INFERNUS", "VACA", "ENTITYXF", "T20", "CHEETAH", "OSIRIS", "REAPER", "BULLET", "ZTYPE",
+
+    // ?? Muscle
+    "DOMINATOR", "DOMINATOR2", "DOMINATOR3", "DUKES", "DUKES2", "GAUNTLET", "GAUNTLET2", "GAUNTLET3", "PHOENIX", "NIGHTSHADE", "VIRGO", "CHINO", "BLADE", "VIGERO",
+
+    // ?? SUVs
+    "BALLER", "BALLER2", "BJXL", "CAVALCADE", "CAVALCADE2", "FQ2", "GRANGER", "HABANERO", "LANDSTALKER", "RADI", "ROCOTO", "SEMINOLE", "SERRANO", "GRESLEY",
+
+    // ?? Off-road / Utility
+    "BISON", "BISON2", "BISON3", "RANCHERXL", "REBEL", "REBEL2", "DLOADER", "BOBCATXL", "SANDKING", "SANDKING2", "KAMACHO", "GUARDIAN",
+
+    // ? Compacts
+    "BLISTA", "BLISTA2", "BLISTA3", "DILETTANTE", "ISSI2", "PRAIRIE", "RHAPSODY",
+
+    // ? Classic / Misc
+    "CASCO", "FAGALOA", "MANANA", "PEYOTE", "STINGER", "STINGERGT", "TORNADO", "TORNADO2", "TORNADO3", "TORNADO4", "VIRGO2", "VIRGO3", "ZTYPE"
+};
+
+        /// <summary>
+        /// A collection of car models to select from.
+        /// </summary>
         public static Model[] CarsToSelectFrom
         {
             get
             {
-                return CarsToSelectFrom.ToArray();
+                return _CarsToSelectFrom.ToArray();
             }
         }
 
-        private static List<Model> _MotorBikesToSelectFrom = new List<Model> { "BATI", "BATI2", "AKUMA", "BAGGER", "DOUBLE", "NEMESIS", "HEXER" };
+        private static List<Model> _MotorBikesToSelectFrom = new List<Model>
+{
+    // ?? Sport Bikes
+    "BATI", "BATI2", "AKUMA", "DOUBLE", "VORTEX", "DEFILER", "THRUST", "LECTRO", "HAKUCHOU", "HAKUCHOU2", "CARBONRS", "NIGHTBLADE", "OPPRESSOR", "OPPRESSOR2", "SHOTARO",
+
+    // ?? Touring / Cruisers
+    "BAGGER", "CHIMERA", "SOVEREIGN", "VADER", "AVARUS", "ZOMBIEA", "ZOMBIEB", "SANCTUS", "INNOVATION", "DAEMON", "DAEMON2", "WOLFSBANE",
+
+    // ?? Off-road / Trail
+    "SANCHEZ", "SANCHEZ2", "MANCHEZ", "MANCHEZ2", "ENDURO", "CLIFFHANGER", "ESSKEY", "RATBIKE",
+
+    // ?? Utility / Quads
+    "BLAZER", "BLAZER2", "BLAZER3", "BLAZER4", "BLAZER5",
+
+    // ? Scooters
+    "FAGGIO", "FAGGIO2", "FAGGIO3",
+
+    // ?? Rare / Special / Unknown (Fallback bucket)
+    "HEXER", "DIABLO", "RUFFIAN"
+};
+
+
+
+
+        /// <summary>
+        /// A collection of motorbike models to select from.
+        /// </summary>
         public static Model[] MotorbikesToSelectFrom
         {
             get
             {
-                return MotorbikesToSelectFrom.ToArray();
+                return _MotorBikesToSelectFrom.ToArray();
             }
         }
 
+        /// <summary>
+        /// A list of traffic stop spawn points with their respective headings.
+        /// </summary>
         public static TupleList<Vector3, float> TrafficStopSpawnPointsWithHeadings
         {
             get
@@ -47,8 +113,16 @@ namespace Albo1125.Common.CommonLibrary
             }
         }
 
+        /// <summary>
+        /// A collection of vowel characters.
+        /// </summary>
         public static string[] Vowels = new string[] { "a", "e", "o", "i", "u" };
+
+        /// <summary>
+        /// A collection of numeric characters.
+        /// </summary>
         public static string[] Numbers = new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
+
 
         private static TupleList<Vector3, float> _TrafficStopSpawnPointsWithHeadings = new TupleList<Vector3, float>
         {
@@ -482,3 +556,4 @@ namespace Albo1125.Common.CommonLibrary
 
     }
 }
+
