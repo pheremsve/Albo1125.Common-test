@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Albo1125")]
 [assembly: AssemblyProduct("Albo1125.Common")]
-[assembly: AssemblyCopyright("Copyright ©  2019 - Albo1125")]
+[assembly: AssemblyCopyright("Copyright ©  2025 -  Owner Albo1125 Enhanced by Pherem")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
