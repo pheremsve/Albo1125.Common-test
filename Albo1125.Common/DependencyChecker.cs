@@ -19,9 +19,20 @@ using Microsoft.Win32;
 namespace Albo1125.Common
 {
 
+    /// <summary>
+    /// Provides methods to check for dependencies required by plugins.
+    /// </summary>
     public static class DependencyChecker
     {
+        /// <summary>
+        /// A list of registered plugins for dependency checks.
+        /// </summary>
         private static List<string> RegisteredPluginsForDependencyChecks = new List<string>();
+
+        /// <summary>
+        /// Registers a plugin for dependency checks.
+        /// </summary>
+        /// <param name="CallingPlugin">The name of the plugin to register.</param>
         public static void RegisterPluginForDependencyChecks(string CallingPlugin)
         {
             if (!RegisteredPluginsForDependencyChecks.Contains(CallingPlugin))
